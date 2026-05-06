@@ -3,7 +3,7 @@ require_once 'config/koneksi.php';
 
 $id=$_GET['id'];
 
-$query="DELETED FROM tb_absensi WHERE id='$id'";
+$query="DELETE FROM tb_absensi WHERE id='$id'";
 
 if ($conn -> query($query)) {
     header("Location: index.php");
