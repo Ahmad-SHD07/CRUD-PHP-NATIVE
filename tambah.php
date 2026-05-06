@@ -19,19 +19,19 @@ echo"Gagal: ". $conn->error;
 
 <h2>Tambah Data</h2>
 
-<formmethod="POST">
+<form method="POST">
     Nama Siswa:<br>
-<inputtype="text"name="nama_siswa"><br><br>
+<input type="text" name="nama_siswa"><br><br>
 
     Keterangan:<br>
-<selectname="keterangan">
-<optionvalue="Hadir">Hadir</option>
-<optionvalue="Izin">Izin</option>
-<optionvalue="Sakit">Sakit</option>
+<select name="keterangan">
+<option value="Hadir">Hadir</option>
+<option value="Izin">Izin</option>
+<option value="Sakit">Sakit</option>
 </select><br><br>
 
     Tanggal:<br>
-<inputtype="date"name="tanggal"><br><br>
+<input type="date" name="tanggal"><br><br>
 
-<buttontype="submit"name="simpan">Simpan</button>
+<button type="submit" name="simpan">Simpan</button>
 </form>

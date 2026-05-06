@@ -4,15 +4,15 @@ require_once 'config/koneksi.php';
 $id=$_GET['id'];
 
 // Ambil data lama
-$data = $conn->query("SELECT * FROM db_absensi_siswa WHERE id='$id'")
-->fetch_assoc();
+$data = $conn->query("SELECT * FROM tb_absensi WHERE id='$id'")
+                ->fetch_assoc();
 
 if (isset($_POST['update'])) {
     $nama=$_POST['nama_siswa'];
     $ket=$_POST['keterangan'];
     $tgl=$_POST['tanggal'];
 
-    $query="UPDATE db_absensi_siswa SET
+    $query="UPDATE tb_absensi SET
                     nama_siswa='$nama',
                     keterangan='$ket',
                     tanggal='$tgl'
@@ -31,17 +31,17 @@ if ($conn->query($query)) {
 
 <form method="POST">
     Nama:<br>
-<input type="keterangan"><br></br>
+<input type="teks" name="nama_siswa" value="<?= $data['nama_siswa']; ?>"><br></br>
 
     keterangan:<br>
 <select name="keterangan">
-    <option<?=$data['keterangan'] == 'Hadir'?'selected':'';?>Hadir</option>
-    <option<?=$data['keterangan'] == 'Izin'?'selected':'';?>Hadir</option>
-    <option<?=$data['keterangan'] == 'Sakit'?'selected':'';?>Hadir</option>
+    <option<?=$data['keterangan'] == 'Hadir'?'selected':'';?>>Hadir</option>
+    <option<?=$data['keterangan'] == 'Izin'?'selected':'';?>>Hadir</option>
+    <option<?=$data['keterangan'] == 'Sakit'?'selected':'';?>>Hadir</option>
 </select><br></br>
 
     Tanggal:<br>
-<input type="data" name="tanggal" value="<?=$data['tanggal'];?>"><br></br>
+<input type="date" name="tanggal" value=" <?=$data['tanggal']; ?>"><br></br>
 
-<button name="update">Update`</button>
+<button name="update">Update</button>
 </form>
